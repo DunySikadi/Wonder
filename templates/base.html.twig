@@ -4,31 +4,38 @@
 		<meta charset="UTF-8">
 		<title>
 			{% block title %}
-			Welcome!
+				Welcome!
 			{% endblock %}
 		</title>
 
 		<script defer src="{{ asset('js/index.js') }}"></script>
-		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-		<script src="https://kit.fontawesome.com/d2f241ac47.js" crossorigin="anonymous"></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
+		{% block styleSheets %}
+			<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+			<script src="https://kit.fontawesome.com/d2f241ac47.js" crossorigin="anonymous"></script>
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+		{% endblock %}
 	</head>
 	<body class="d-flex flex-column">
 		{{ include('partials/_header.html.twig') }}
 		<div class="app-content flex-fill d-flex flex-row-nowrap justify-content-center">
-		    <div class="content d-flex flex-row-nowrap flex-fill py-50">
+			<div class="content d-flex flex-row-nowrap flex-fill py-50">
 				{{ include('partials/_sidebar.html.twig') }}
 				<div class="flex-fill">
 					{% block body %}
-					 Contenu
+						Contenu
 					{% endblock %}
 				</div>
 			</div>
 		</div>
+		{% for cat, list in app.flashes %}
+			{% for message in list %}
+				<div class="flash flash-{{ cat }}">
+					{{message}}
+				</div>
+			{% endfor %}
+		{% endfor %}
 		{{ include('partials/_footer.html.twig') }}
 	</body>
 </html>
-

@@ -23,6 +23,7 @@
   --font-weight-regular: 400;
   --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
+  --line-height-hight: 30px;
 }
 
 * {
@@ -57,6 +58,11 @@ h5 {
 small {
   font-size: var(--font-size-small);
   font-family: var(--font-family);
+}
+
+.separator {
+  border-bottom: 1px solid var(--gray-light);
+  margin: 30px 0px;
 }
 
 /* flex */
@@ -129,6 +135,14 @@ small {
   margin-right: 50px;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
 .mb-20 {
   margin-bottom: 20px;
 }
@@ -147,8 +161,16 @@ small {
   padding-bottom: 20px;
 }
 
+.pb-10 {
+  padding-bottom: 10px;
+}
+
 .pb-20 {
   padding-bottom: 20px;
+}
+
+.pb-30 {
+  padding-bottom: 30px;
 }
 
 .py-20 {
@@ -252,6 +274,17 @@ textarea {
 
 .text-small {
   font-size: var(--font-size-small);
+}
+
+/*flash*/
+.flash {
+  padding: 20px;
+  text-align: center;
+  text-align: #fff;
+}
+
+.flash-success {
+  background-color: var(--success);
 }
 
 /* sidebar */
