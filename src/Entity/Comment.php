@@ -29,6 +29,10 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?Question $question = null;
 
+    #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $author = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -36,6 +40,7 @@ class Comment
 
     #[NotBlank(message: "veuillez detailler votre reponse")]
     #[Length(min: 100, minMessage: "Votre reponse est trop courte")]
+
     public function getContent(): ?string
     {
         return $this->content;
@@ -80,6 +85,18 @@ class Comment
     public function setQuestion(?Question $question): self
     {
         $this->question = $question;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
