@@ -275,10 +275,18 @@ textarea {
   border: 1px solid var(--primary);
 }
 
+.btn-hidden {
+  display: none;
+}
+
 .clickable {
   color: var(--primary);
   font-weight: var(--font-weight-semi-bold);
   cursor: pointer;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .text-small {

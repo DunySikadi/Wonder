@@ -30,4 +30,22 @@
 			</div>
 		{% endfor %}
 	</ul>
+
+	<div class="mb-20 d-flex align-items-center justify-content-center ">
+		<a href="{{ path('page', { page : page - 1 }) }}" class="m-5 {{ page == 1 ? " disabled" : " " }} ">
+			<button class="btn {{ page == 1 ? 'btn-hidden' : 'btn-primary' }}">
+				<i class="fa-solid fa-chevron-left"></i>
+			</button>
+		</a>
+		{% for elt in array %}
+			<a href="{{ path('page', { page: elt }) }}" class="m-5">
+				<button class="btn {{ page == elt ?  'btn-primary-stroke' : 'btn-primary' }}">{{ elt }}</button>
+			</a>
+		{% endfor %}
+		<a href="{{ path('page', { page : page + 1}) }}" class="m-5 {{ page == array|length ? " disabled" : " " }} ">
+			<button class="btn {{ page == array|length ?  'btn-hidden' : 'btn-primary' }} ">
+				<i class="fa-solid fa-chevron-right"></i>
+			</button>
+		</a>
+	</div>
 {% endblock %}
