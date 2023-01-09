@@ -22,6 +22,8 @@ security:
         login_path: login
         check_path: login
         enable_csrf: true
+      custom_authenticator: App\Security\UtilisateurAuthenticator
+      entry_point: form_login
       logout:
         path: logout
 

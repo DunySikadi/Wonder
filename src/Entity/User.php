@@ -55,8 +55,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $comments;
 
     #[ORM\Column(length: 255)]
-    #[Url(message: 'votre ima ge doit provenir d\'url.')]
-    #[NotBlank(message: "vieullez renseigner une image")]
     private ?string $picture = null;
 
     public function __construct()
